@@ -27,7 +27,11 @@ export function updateToGraduated(button : Entity, hatModel : Entity){
                     const caller= await getUserAccount();
                     //Graduation check
                     let result=await GE.isGraduated(caller);
-                    
+                    //Initialization check
+                    let init=await SH.initialized();
+                    //Version check
+                    let version=await SH.isGraduatedVersion();
+
                     if(result==false){
                         //Error message & sound
                         const soundentity = new Entity();
@@ -37,16 +41,29 @@ export function updateToGraduated(button : Entity, hatModel : Entity){
                         engine.addEntity(soundentity);
                         ui.displayAnnouncement("Operation failed! Not graduated!", 2, Color4.Red(), 25, true);
                     }else{
-                        //Hat changing
-                        await SH.cambia_aspetto_cappello_da_laureato({from: caller});
-                        
-                        //Success message & sound
-                        const soundentity = new Entity();
-                        const audioSource=new AudioSource(successSound); 
-                        soundentity.addComponent(audioSource);
-                        soundentity.getComponent(AudioSource).playing=true; 
-                        engine.addEntity(soundentity);             
-                        ui.displayAnnouncement("Operation completed!", 2, Color4.Green(), 25, true);
+                        if((init==false)||(version==true)){
+                             //Error message & sound
+                            const soundentity = new Entity();
+                            const audioSource=new AudioSource(failureSound); 
+                            soundentity.addComponent(audioSource);
+                            soundentity.getComponent(AudioSource).playing=true; 
+                            engine.addEntity(soundentity);
+                            if(init==false)
+                                ui.displayAnnouncement("Operation failed! Hat not initialized!", 2, Color4.Red(), 25, true);
+                            if(version==true)
+                                ui.displayAnnouncement("Operation failed! Upgrade already done!", 2, Color4.Red(), 25, true);
+                        }else{
+                            //Hat changing
+                            await SH.cambia_aspetto_cappello_da_laureato({from: caller});
+                            
+                            //Success message & sound
+                            const soundentity = new Entity();
+                            const audioSource=new AudioSource(successSound); 
+                            soundentity.addComponent(audioSource);
+                            soundentity.getComponent(AudioSource).playing=true; 
+                            engine.addEntity(soundentity);             
+                            ui.displayAnnouncement("Operation completed!", 2, Color4.Green(), 25, true);
+                        }
                     }
                 }catch(error){
                     log("Error:"+error);
