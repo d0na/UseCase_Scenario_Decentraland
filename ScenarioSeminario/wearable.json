@@ -1,0 +1,31 @@
+{
+  "data": {
+    "replaces": ["hat"],
+    "hides": ["hair"],
+    "tags": [
+      "UniPi",
+      "Student Hat",
+      "University",
+      "Computer Science",
+      "Graduation"
+    ],
+    "representations": [
+      {
+        "bodyShapes": [
+          "urn:decentraland:off-chain:base-avatars:BaseMale",
+          "urn:decentraland:off-chain:base-avatars:BaseFemale"
+        ],
+        "mainFile": "21.glb",
+        "contents": [
+          "21.glb"
+        ],
+        "overrideHides": ["hair"],
+        "overrideReplaces": ["hat"]
+      }
+    ],
+    "category": "hat"
+  },
+  "name": "UniPi Student Cap",
+  "description": "Standard cap for University of Pisa students",
+  "rarity": "mythic"
+}
