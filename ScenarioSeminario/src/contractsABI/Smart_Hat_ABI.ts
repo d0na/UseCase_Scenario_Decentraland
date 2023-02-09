@@ -47,7 +47,7 @@ export default[
 				"type": "string"
 			}
 		],
-		"name": "aggiungi_spilla_argentata",
+		"name": "addGoldenPin",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -60,14 +60,7 @@ export default[
 				"type": "string"
 			}
 		],
-		"name": "aggiungi_spilla_dorata",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "cambia_aspetto_cappello_da_laureato",
+		"name": "addSilverPin",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -87,7 +80,7 @@ export default[
 	},
 	{
 		"inputs": [],
-		"name": "crea_cappellino",
+		"name": "createHat",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -209,6 +202,13 @@ export default[
 			}
 		],
 		"name": "transferOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "updateToGraduated",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"

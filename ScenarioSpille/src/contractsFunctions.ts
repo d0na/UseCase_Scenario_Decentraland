@@ -54,7 +54,7 @@ export function updateToGraduated(button : Entity, hatModel : Entity){
                                 ui.displayAnnouncement("Operation failed! Upgrade already done!", 2, Color4.Red(), 25, true);
                         }else{
                             //Hat changing
-                            await SH.cambia_aspetto_cappello_da_laureato({from: caller});
+                            await SH.updateToGraduated({from: caller});
                             
                             //Success message & sound
                             const soundentity = new Entity();
@@ -192,7 +192,7 @@ export function addGoldenPin(button: Entity, codice: string, hatModel : Entity){
                         
                         if(res==2){
                             //Put the new pin on the hat
-                            var result=await SH.aggiungi_spilla_dorata(codice,{from: caller});
+                            var result=await SH.addGoldenPin(codice,{from: caller});
                             
                             //Success message & sound
                             const soundentity = new Entity();
@@ -250,7 +250,7 @@ export function addSilverPin(button: Entity, codice: string, hatModel : Entity){
 
                     if(res==1){
                         //Put the new pin on the hat
-                        var result=await SH.aggiungi_spilla_argentata(codice,{from: caller});
+                        var result=await SH.addSilverPin(codice,{from: caller});
                         
                         //Success message & sound
                         const soundentity = new Entity();
@@ -318,7 +318,7 @@ export function initializeHat(button: Entity, hatModel : Entity){
                                 ui.displayAnnouncement("Operation failed! Hat already initialized", 2, Color4.Red(), 25, true);
                             }else{
                                 //Invoke initializing function of the smart contract
-                                await SH.crea_cappellino({from: caller});
+                                await SH.createHat({from: caller});
                                 
                                 //Show hat model into the scenario
                                 engine.addEntity(hatModel);
