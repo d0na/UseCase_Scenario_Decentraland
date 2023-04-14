@@ -3,6 +3,7 @@ import {createButton} from "./constructor_functions/createButton"
 import { createImage } from "./constructor_functions/createImage"
 import {addGoldenPin, addSilverPin, updateToGraduated, updateHat, initializeHat} from "./contractsFunctions"
 
+
 class RotatorSystem {
   //Rotatory system for the hat model
   group = engine.getComponentGroup(Transform)
@@ -11,6 +12,7 @@ class RotatorSystem {
     transform.rotate(Vector3.Up(),dt*20);
   }
 }
+
 
 //Hat model
 const hat=new Entity();
