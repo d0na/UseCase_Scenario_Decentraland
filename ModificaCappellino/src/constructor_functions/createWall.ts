@@ -13,7 +13,7 @@ export function createWall(scale: Vector3, position: Vector3, text: string, tran
     const textSign = new Entity();
     const textShape = new TextShape(text);
     textShape.font=new Font(Fonts.SansSerif_SemiBold);
-    textShape.fontSize = 10;
+    textShape.fontSize = 11;
     textShape.color = Color3.FromHexString("#0066ff");
     
     textSign.addComponent(textShape);

@@ -22,7 +22,7 @@ base.addComponent(new GLTFShape("models/baseDarkWithCollider.glb"))
 engine.addEntity(base)
 
 //Wall left
-createWall(new Vector3(12.5, 14, 1), new Vector3(9, 0, 15));
+createWall(new Vector3(12.5, 14, 1), new Vector3(9, 0, 14));
 //Wall right
 createWall(new Vector3(12.5, 14, 1), new Vector3(9, 0, 1));
 //Wall Back
