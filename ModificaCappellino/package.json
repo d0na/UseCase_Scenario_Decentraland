@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "My new Decentraland project",
   "scripts": {
-    "start": "dcl start",
+    "start": "dcl start --web3",
     "build": "build-ecs",
     "watch": "build-ecs --watch",
     "deploy:now": "dcl pack",
